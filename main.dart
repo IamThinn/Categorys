@@ -1,129 +1,371 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const Myapp());
 }
 
-class MyApp extends StatelessWidget {
+class Myapp extends StatelessWidget {
+  const Myapp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Navigator(
+          // Thêm Navigator widget ở đây
+          onGenerateRoute: (settings) {
+            return MaterialPageRoute(
+              builder: (context) => MyAppvip(),
+            );
+          },
+        ));
+  }
+}
+
+class MyAppvip extends StatelessWidget {
+  const MyAppvip({super.key});
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Categories',
-      home: CategoriesScreen(),
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: false,
+          backgroundColor: Colors.white,
+          toolbarHeight: 80,
+          title: const Text(
+            'Categories',
+            style: TextStyle(fontSize: 25, color: Colors.black),
+          ),
+          actions: [
+            IconButton(onPressed: null, icon: Icon(Icons.search_outlined)),
+            IconButton(
+                onPressed: null, icon: Icon(Icons.favorite_border_outlined)),
+            IconButton(onPressed: null, icon: Icon(Icons.shopping_cart))
+          ],
+        ),
+        body: GridView.count(
+          primary: false,
+          padding: EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
+          children: [
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                elevation: 8, // Độ nổi của nút
+              ),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.blue[200],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/2912/2912546.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                    child: Text('Fashion',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 8, // Độ nổi của nút
+                  backgroundColor: Colors.deepOrange[200]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.deepOrange[100],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/1807/1807383.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                    child: Text('Beauty',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 8, // Độ nổi của nút
+                  backgroundColor: Colors.blueAccent[100]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.blue[100],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/2278/2278984.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                    child: Text('Electronics',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 8, // Độ nổi của nút
+                  backgroundColor: Colors.purple[200]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.purple[100],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/4259/4259776.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                    child: Text('Jewellery',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 8, // Độ nổi của nút
+                  backgroundColor: Colors.teal[200]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.teal[100],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/3343/3343850.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                    child: Text('Footwear',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 8, // Độ nổi của nút
+                  backgroundColor: Colors.green[200]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.green[100],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/4287/4287470.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(65, 0, 0, 0),
+                    child: Text('Toys',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 8, // Độ nổi của nút
+                  backgroundColor: Colors.pink[200]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.pink[100],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/2603/2603741.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+                    child: Text('Furnitute',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+            Container(
+                child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                  elevation: 8, // Độ nổi của nút
+                  backgroundColor: Colors.brown[200]),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Mystore()));
+              },
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(10.0),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.brown[100],
+                        radius: 60,
+                        child: Image.network(
+                            'https://cdn-icons-png.flaticon.com/512/2586/2586488.png',
+                            height: 60,
+                            width: 60),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(55, 0, 0, 0),
+                    child: Text('Mobiles',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                  ),
+                ],
+              ),
+            )),
+          ],
+        ),
+      ),
     );
   }
 }
 
-class CategoriesScreen extends StatelessWidget {
-  final List<String> categories = [
-    'Fashion',
-    'Beauty',
-    'Electronics',
-    'Jewellery',
-    'Footwear',
-    'Toys',
-    'Furniture',
-    'Mobiles'
-  ];
-  List<String> categoryImages = [
-    "assets/images/fashion.png",
-    "assets/images/beauty.png",
-    "assets/images/electronics.png",
-    "assets/images/jewellery.png",
-    "assets/images/footwear.png",
-    "assets/images/toys.png",
-    "assets/images/furniture.png",
-    "assets/images/iphone.png",
-  ];
-  int index = 0;
+class Mystore extends StatelessWidget {
+  const Mystore({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Categories',
-          style: TextStyle(color: Colors.black, fontSize: 22),
-        ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
+        toolbarHeight: 80,
+        title: Text('Categories',
+            style: TextStyle(fontSize: 25, color: Colors.black)),
         actions: [
+          IconButton(onPressed: null, icon: Icon(Icons.search_outlined)),
           IconButton(
-            icon: Icon(Icons.search_rounded),
-            onPressed: null,
-          ),
-          IconButton(
-            icon: Icon(Icons.favorite_outline_sharp),
-            onPressed: null,
-          ),
-          IconButton(onPressed: null, icon: Icon(Icons.shopping_cart_outlined))
+              onPressed: null, icon: Icon(Icons.favorite_border_outlined)),
+          IconButton(onPressed: null, icon: Icon(Icons.shopping_cart))
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 3.0),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                mainAxisSpacing: 16.0,
-                crossAxisSpacing: 16.0,
-                children: categories.map((category) {
-                  String categoryImage = categoryImages[index];
-                  index++;
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    elevation: 10.0,
-                    child: InkWell(
-                      splashColor: Colors.blue.withAlpha(100),
-                      onTap: () {},
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: double.infinity,
-                        padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.0),
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 235, 157, 41),
-                              Color.fromARGB(255, 233, 96, 96)
-                            ],
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor:
-                                  Color.fromARGB(255, 218, 66, 200),
-                              radius: 31,
-                              child: Image.asset(
-                                categoryImage,
-                                width: 50.0,
-                                height: 50.0,
-                              ),
-                            ),
-                            SizedBox(height: 6.0),
-                            Text(
-                              category,
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                }).toList(),
-              ),
+      body: GridView.count(
+        primary: false,
+        padding: EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.blue[100],
             ),
-          ],
-        ),
+          ),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.orange[100])),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.pink[100])),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.purple[100])),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.red[200])),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.green[100])),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.yellow[200])),
+          Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.brown[100])),
+        ],
       ),
     );
   }
